@@ -53,13 +53,13 @@ def user_login(request):
         form = AuthenticationForm()
     return render(request, 'login.html', {'form': form})
 
-@login_required
+
 def user_logout(request):
     logout(request)
     messages.success(request, 'You have been logged out.')
     return redirect('slider')
 
-@login_required
+
 def detect_news(request):
     if request.method == 'POST':
         text = request.POST.get('text')
@@ -67,7 +67,10 @@ def detect_news(request):
             text_vectorized = vectorizer.transform([text])
             prediction = model.predict(text_vectorized)[0]
             is_fake = bool(prediction)
-            NewsArticle.objects.create(user=request.user, text=text, is_fake=is_fake)
+
+            if request.user.is_authenticated:
+                NewsArticle.objects.create(user=request.user, text=text, is_fake=is_fake)
+            
             messages.success(request, 'Prediction completed successfully!')
         else:
             messages.error(request, 'Error: Model or vectorizer not loaded correctly.')
@@ -75,7 +78,8 @@ def detect_news(request):
         return render(request, 'result.html', {'is_fake': is_fake, 'text': text})
     return render(request, 'detect_news.html')
 
-@login_required
+
+
 def history(request):
     articles = NewsArticle.objects.filter(user=request.user).order_by('-created_at')
     return render(request, 'history.html', {'articles': articles})
