@@ -1,0 +1,9 @@
+{% extends 'home.html' %}
+{% block content %}
+<h1>Result</h1>
+<div class="alert {% if is_fake %}alert-danger{% else %}alert-success{% endif %}">
+    The news is {% if is_fake %}FAKE{% else %}TRUE{% endif %}.
+</div>
+<p>{{ text }}</p>
+<a href="{% url 'detect_news' %}" class="btn btn-secondary">Check Another</a>
+{% endblock %}

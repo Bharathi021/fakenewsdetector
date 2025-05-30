@@ -1,0 +1,18 @@
+# Ignore large CSVs
+*.csv
+fake.csv
+true.csv
+
+# Python/virtualenv stuff
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+env/
+venv/
+*.log
+db.sqlite3
+
+# Django secret key, if using .env
+.env

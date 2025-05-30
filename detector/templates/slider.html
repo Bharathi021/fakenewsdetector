@@ -1,0 +1,175 @@
+{% extends 'home.html' %}
+{% load static %}
+
+{% block content %}
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+        .navbar {
+            background: linear-gradient(90deg, #6a11cb, #2575fc);
+        }
+        .carousel-item {
+            height: 500px; /* Adjust the height of the slideshow */
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s ease; /* Smooth transition for slides */
+        }
+        .carousel-caption {
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for captions */
+            border-radius: 10px;
+            padding: 20px;
+            transition: opacity 0.5s ease; /* Smooth fade-in for captions */
+        }
+        .carousel-caption h5 {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        .carousel-caption p {
+            font-size: 1.2rem;
+        }
+        .feature-section {
+            padding: 60px 0;
+            background: #f8f9fa;
+        }
+        .feature-icon {
+            font-size: 3rem;
+            color: #6a11cb;
+            transition: transform 0.3s ease, color 0.3s ease; /* Hover effect for icons */
+        }
+        .feature-icon:hover {
+            transform: scale(1.2); /* Enlarge icon on hover */
+            color: #2575fc; /* Change color on hover */
+        }
+        .cta-section {
+            padding: 60px 0;
+            background: linear-gradient(90deg, #6a11cb, #2575fc);
+            color: white;
+        }
+        .cta-btn {
+            background: white;
+            color: #6a11cb;
+            font-weight: bold;
+            padding: 10px 30px;
+            border-radius: 25px;
+            transition: transform 0.3s ease, background 0.3s ease; /* Hover effect for button */
+        }
+        .cta-btn:hover {
+            transform: scale(1.1); /* Enlarge button on hover */
+            background: #f8f9fa; /* Change background on hover */
+        }
+        .footer {
+            padding: 40px 0;
+            background: #343a40;
+            color: white;
+        }
+        .footer a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease; /* Hover effect for links */
+        }
+        .footer a:hover {
+            color: #6a11cb; /* Change color on hover */
+        }
+    </style>
+
+    <!-- Slideshow -->
+    <div id="homeCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        </div>
+
+        <div class="carousel-inner">
+            <!-- Slide 1 -->
+            <div class="carousel-item active" style="background-image: url('/static/images/slide1.jpg');">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Welcome to FND</h5>
+                    <p>Your trusted platform for detecting fake news.</p>
+                </div>
+            </div>
+            <!-- Slide 2 -->
+            <div class="carousel-item" style="background-image: url('/static/images/slide2.jpg');">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Stay Informed</h5>
+                    <p>Use advanced technology to verify the authenticity of news.</p>
+                </div>
+            </div>
+            <!-- Slide 3 -->
+            <div class="carousel-item" style="background-image: url('/static/images/slide3.jpg');">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Data-Driven Analysis</h5>
+                    <p>Our algorithms analyze news content to detect misinformation.</p>
+                </div>
+            </div>
+            <!-- Slide 4 -->
+            <div class="carousel-item" style="background-image: url('/static/images/slide4.jpg');">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Join Our Community</h5>
+                    <p>Help us build a more informed and trustworthy world.</p>
+                </div>
+            </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#homeCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+
+        <button class="carousel-control-next" type="button" data-bs-target="#homeCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <!-- Feature Section -->
+    <div class="feature-section text-center">
+        <div class="container">
+            <h2 class="mb-5">How It Works</h2>
+            <div class="row">
+                <div class="col-md-3">
+                    <i class="bi bi-search feature-icon"></i>
+                    <h4>Detect</h4>
+                    <p>Use our advanced algorithms to detect fake news.</p>
+                </div>
+                <div class="col-md-3">
+                    <i class="bi bi-bar-chart feature-icon"></i>
+                    <h4>Analyze</h4>
+                    <p>Get detailed insights into the authenticity of news.</p>
+                </div>
+                <div class="col-md-3">
+                    <i class="bi bi-shield-check feature-icon"></i>
+                    <h4>Protect</h4>
+                    <p>Stay informed and protect yourself from misinformation.</p>
+                </div>
+                <div class="col-md-3">
+                    <i class="bi bi-people feature-icon"></i>
+                    <h4>Community</h4>
+                    <p>Join a community dedicated to fighting fake news.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call-to-Action Section -->
+    <div class="cta-section text-center">
+        <div class="container">
+            <h2 class="mb-4">Ready to Detect Fake News?</h2>
+            <p class="mb-4">Join thousands of users who trust FND to stay informed.</p>
+            <a href="{% url 'register' %}" class="btn cta-btn">Get Started</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer text-center">
+        <div class="container">
+            <p>&copy; 2023 FND - Fake News Detector. All rights reserved.</p>
+            <p>
+                <a href="#" class="text-white me-3">Privacy Policy</a>
+                <a href="#" class="text-white">Terms of Service</a>
+            </p>
+        </div>
+    </div>
+{% endblock %}

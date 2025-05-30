@@ -1,0 +1,37 @@
+{% extends 'home.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    body {
+        background-image: url("{% static 'images/image_fnd.webp' %}");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+    .card {
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+    }
+</style>
+
+<div class="row justify-content-center align-items-center min-vh-100">
+    <div class="col-md-8">
+        <div class="card shadow slide-in">
+            <div class="card-body">
+                <h2 class="card-title text-center mb-4">Fake News Detection</h2>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <textarea name="text" class="form-control" rows="5" placeholder="Enter news text..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
